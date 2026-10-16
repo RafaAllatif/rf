@@ -1,0 +1,850 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jadwal Pelajaran</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 30px;
+        }
+
+        /* HEADER */
+        .header {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* KARTU HARI */
+        .day-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .day-title h2 {
+            color: #2563eb;
+            font-size: 25px;
+        }
+
+        .day-icon {
+            width: 45px;
+            height: 45px;
+            background: #dbeafe;
+            color: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        /* GRID JADWAL */
+        .schedule {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        /* KARTU PELAJARAN */
+        .lesson {
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+            background: #ffffff;
+        }
+
+        .lesson:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+            border-color: #93c5fd;
+        }
+
+        .number {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-info h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .lesson-info p {
+            font-size: 13px;
+            color: #64748b;
+            margin: 3px 0;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #2563eb !important;
+        }
+
+        .room {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb !important;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE TABLET */
+        @media (max-width: 800px) {
+            body {
+                padding: 20px;
+            }
+
+            .schedule {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+        }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 500px) {
+            body {
+                padding: 12px;
+            }
+
+            .day-card {
+                padding: 17px;
+                border-radius: 15px;
+            }
+
+            .header {
+                margin-bottom: 25px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .day-title h2 {
+                font-size: 21px;
+            }
+
+            .lesson {
+                padding: 14px;
+            }
+
+            .number {
+                min-width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .lesson-info h3 {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1> Jadwal Pelajaran</h1>
+        <p>Jadwal pembelajaran Senin sampai Jumat</p>
+    </header>
+
+    <main class="container">
+
+        <!-- ================= SENIN ================= -->
+        <section class="day-card">
+
+            <div class="day-title">
+                <div class="day-icon">📅</div>
+                <h2>Senin</h2>
+            </div>
+
+            <div class="schedule">
+
+                <div class="lesson">
+                    <div class="number">1</div>
+                    <div class="lesson-info">
+                        <h3>Matematika</h3>
+                        <p class="time">07:00 - 07:45</p>
+                        <p>Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">2</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <p class="time">07:45 - 08:30</p>
+                        <p> Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">3</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Inggris</h3>
+                        <p class="time">08:30 - 09:15</p>
+                        <p>Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">4</div>
+                    <div class="lesson-info">
+                        <h3>IPA</h3>
+                        <p class="time">09:15 - 10:00</p>
+                        <p> Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">5</div>
+                    <div class="lesson-info">
+                        <h3>IPS</h3>
+                        <p class="time">10:00 - 10:45</p>
+                        <p> Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">6</div>
+                    <div class="lesson-info">
+                        <h3>Pendidikan Agama</h3>
+                        <p class="time">10:45 - 11:30</p>
+                        <p> Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">7</div>
+                    <div class="lesson-info">
+                        <h3>PJOK</h3>
+                        <p class="time">11:30 - 12:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lapangan</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">8</div>
+                    <div class="lesson-info">
+                        <h3>Informatika</h3>
+                        <p class="time">12:15 - 13:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lab Komputer</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">9</div>
+                    <div class="lesson-info">
+                        <h3>Seni Budaya</h3>
+                        <p class="time">13:00 - 13:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">10</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Jawa</h3>
+                        <p class="time">13:45 - 14:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">11</div>
+                    <div class="lesson-info">
+                        <h3>Prakarya</h3>
+                        <p class="time">14:30 - 15:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SELASA ================= -->
+        <section class="day-card">
+
+            <div class="day-title">
+                <div class="day-icon">📅</div>
+                <h2>Selasa</h2>
+            </div>
+
+            <div class="schedule">
+
+                <div class="lesson">
+                    <div class="number">1</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Inggris</h3>
+                        <p class="time">07:00 - 07:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">2</div>
+                    <div class="lesson-info">
+                        <h3>Matematika</h3>
+                        <p class="time">07:45 - 08:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">3</div>
+                    <div class="lesson-info">
+                        <h3>IPS</h3>
+                        <p class="time">08:30 - 09:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">4</div>
+                    <div class="lesson-info">
+                        <h3>IPA</h3>
+                        <p class="time">09:15 - 10:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">5</div>
+                    <div class="lesson-info">
+                        <h3>Informatika</h3>
+                        <p class="time">10:00 - 10:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lab Komputer</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">6</div>
+                    <div class="lesson-info">
+                        <h3>PJOK</h3>
+                        <p class="time">10:45 - 11:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lapangan</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">7</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <p class="time">11:30 - 12:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">8</div>
+                    <div class="lesson-info">
+                        <h3>Seni Budaya</h3>
+                        <p class="time">12:15 - 13:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">9</div>
+                    <div class="lesson-info">
+                        <h3>Prakarya</h3>
+                        <p class="time">13:00 - 13:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">10</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Jawa</h3>
+                        <p class="time">13:45 - 14:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">11</div>
+                    <div class="lesson-info">
+                        <h3>Pendidikan Agama</h3>
+                        <p class="time">14:30 - 15:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= RABU ================= -->
+        <section class="day-card">
+
+            <div class="day-title">
+                <div class="day-icon">📅</div>
+                <h2>Rabu</h2>
+            </div>
+
+            <div class="schedule">
+
+                <div class="lesson">
+                    <div class="number">1</div>
+                    <div class="lesson-info">
+                        <h3>IPA</h3>
+                        <p class="time">07:00 - 07:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">2</div>
+                    <div class="lesson-info">
+                        <h3>Matematika</h3>
+                        <p class="time">07:45 - 08:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">3</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <p class="time">08:30 - 09:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">4</div>
+                    <div class="lesson-info">
+                        <h3>Informatika</h3>
+                        <p class="time">09:15 - 10:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lab Komputer</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">5</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Inggris</h3>
+                        <p class="time">10:00 - 10:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">6</div>
+                    <div class="lesson-info">
+                        <h3>IPS</h3>
+                        <p class="time">10:45 - 11:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">7</div>
+                    <div class="lesson-info">
+                        <h3>Pendidikan Agama</h3>
+                        <p class="time">11:30 - 12:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">8</div>
+                    <div class="lesson-info">
+                        <h3>PJOK</h3>
+                        <p class="time">12:15 - 13:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lapangan</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">9</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Jawa</h3>
+                        <p class="time">13:00 - 13:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">10</div>
+                    <div class="lesson-info">
+                        <h3>Seni Budaya</h3>
+                        <p class="time">13:45 - 14:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">11</div>
+                    <div class="lesson-info">
+                        <h3>Prakarya</h3>
+                        <p class="time">14:30 - 15:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= KAMIS ================= -->
+        <section class="day-card">
+
+            <div class="day-title">
+                <div class="day-icon">📅</div>
+                <h2>Kamis</h2>
+            </div>
+
+            <div class="schedule">
+
+                <div class="lesson">
+                    <div class="number">1</div>
+                    <div class="lesson-info">
+                        <h3>Matematika</h3>
+                        <p class="time">07:00 - 07:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">2</div>
+                    <div class="lesson-info">
+                        <h3>IPA</h3>
+                        <p class="time">07:45 - 08:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">3</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Inggris</h3>
+                        <p class="time">08:30 - 09:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">4</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <p class="time">09:15 - 10:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">5</div>
+                    <div class="lesson-info">
+                        <h3>IPS</h3>
+                        <p class="time">10:00 - 10:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">6</div>
+                    <div class="lesson-info">
+                        <h3>Informatika</h3>
+                        <p class="time">10:45 - 11:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lab Komputer</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">7</div>
+                    <div class="lesson-info">
+                        <h3>PJOK</h3>
+                        <p class="time">11:30 - 12:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lapangan</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">8</div>
+                    <div class="lesson-info">
+                        <h3>Prakarya</h3>
+                        <p class="time">12:15 - 13:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">9</div>
+                    <div class="lesson-info">
+                        <h3>Seni Budaya</h3>
+                        <p class="time">13:00 - 13:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">10</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Jawa</h3>
+                        <p class="time">13:45 - 14:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">11</div>
+                    <div class="lesson-info">
+                        <h3>Pendidikan Agama</h3>
+                        <p class="time">14:30 - 15:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= JUMAT ================= -->
+        <section class="day-card">
+
+            <div class="day-title">
+                <div class="day-icon">📅</div>
+                <h2>Jumat</h2>
+            </div>
+
+            <div class="schedule">
+
+                <div class="lesson">
+                    <div class="number">1</div>
+                    <div class="lesson-info">
+                        <h3>Pendidikan Agama</h3>
+                        <p class="time">07:00 - 07:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">2</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Indonesia</h3>
+                        <p class="time">07:45 - 08:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">3</div>
+                    <div class="lesson-info">
+                        <h3>Matematika</h3>
+                        <p class="time">08:30 - 09:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">4</div>
+                    <div class="lesson-info">
+                        <h3>IPA</h3>
+                        <p class="time">09:15 - 10:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">5</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Inggris</h3>
+                        <p class="time">10:00 - 10:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">6</div>
+                    <div class="lesson-info">
+                        <h3>IPS</h3>
+                        <p class="time">10:45 - 11:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.01</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">7</div>
+                    <div class="lesson-info">
+                        <h3>Informatika</h3>
+                        <p class="time">11:30 - 12:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lab Komputer</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">8</div>
+                    <div class="lesson-info">
+                        <h3>PJOK</h3>
+                        <p class="time">12:15 - 13:00</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">Lapangan</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">9</div>
+                    <div class="lesson-info">
+                        <h3>Seni Budaya</h3>
+                        <p class="time">13:00 - 13:45</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">10</div>
+                    <div class="lesson-info">
+                        <h3>Bahasa Jawa</h3>
+                        <p class="time">13:45 - 14:30</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+                <div class="lesson">
+                    <div class="number">11</div>
+                    <div class="lesson-info">
+                        <h3>Prakarya</h3>
+                        <p class="time">14:30 - 15:15</p>
+                        <p>👨‍🏫 Nama Guru</p>
+                        <p class="room">R.02</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 Jadwal Pelajaran Sekolah
+    </footer>
+
+</body>
+</html>
+```

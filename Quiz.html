@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <style>
+      .R {
+        background-color: #4544a0;
+        color: #ffffff;
+        padding: 7px;
+        width: 80px;
+        border-radius: 4px;
+        border: none;
+      }
+
+      .Z {
+        background-color: #4544a0;
+        color: #ffffff;
+        padding: 7px;
+        width: 100px;
+        border-radius: 4px;
+        border: none;
+      }
+
+      .V {
+        background-color: #d3d3d3;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 align="center">BIODATA SISWA</h3>
+
+    <form action="">
+      <table border="1" cellspacing="0" cellpadding="10" align="center">
+        <tr class="V">
+          <th>FORM BIODATA SISWA</th>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="">
+              <tr>
+                <td>
+                  <label for="">NISN</label>
+                </td>
+                <td><input class="L" type="number" /></td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="">Nama</label>
+                </td>
+                <td><input class="L" type="text" /></td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="">Jenis Kelamin</label>
+                </td>
+                <td>
+                  <input type="radio" name="jk" id="" />Laki-laki
+                  <input type="radio" name="jk" id="" />Perempuan
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="">Agama</label>
+                </td>
+                <td>
+                  <select name="Agama" id="">
+                    <option value="(Islam, kristen, dll)">
+                      (Islam, Kristen, dll)
+                    </option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Konghucu">Konghucu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Hindu">Hindu</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2">
+                  <input class="Z" type="submit" value="Simpan Data" />
+                  <input class="R" type="Reset" value="Reset" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
